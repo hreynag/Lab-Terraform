@@ -13,7 +13,7 @@ resource "docker_container" "container_server_web" {
   name = "server_web"
   image = "nginx:latest"
   ports {
-    external = 6000
+    external = var.web_server_port
     internal = 80
   }
 }
@@ -34,6 +34,6 @@ resource "docker_container" "mysql_db" {
   ]
   ports {
     internal = 3306
-    external = 8084
+    external = var.server_db_port
   }
 }
